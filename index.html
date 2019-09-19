@@ -1,17 +1,18 @@
 <html>
-    <head>
-            <script src="angular.js"></script>
-            <script src="app.js"></script>
-         </script>
-        </head>
-            
 
-        <body ng-app="ChatApp">
-            <div ng-controller="registerController">
-                    <script src="../frontEnd//controllers/registerController.js"></script>
-            </div>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.js'></script>
+    <script src="app.js"></script>
+    <script src="./controllers/registerController.js"></script>
+    <script src="./controllers/resetPasswordController.js"></script>
+    <script src="services.js"></script>
 
-            <div ui-view></div>
-        
-        </body>
-    </html>
+</head>
+
+<body ng-app="chatApp">
+<h1>Chat App</h1>
+    <ui-view></ui-view>
+</body>
+
+</html>

@@ -1,13 +1,40 @@
-var registerModule=angular.module("ChatApp",[]);
-registerModule.controller("registerController",registerController)
-function registerController($scope){
-    console.log("inside register");
-    $scope.firstName="dcac";
-    $scope.lastName=lastName;
-    $scope.email=email;
-    $scope.password=password;
-    $scope.submitForm=function(){
-        console.log("form submitted");
+app.controller("registerController",function($scope,service){ 
+    $scope.registerUser=function (){
+        console.log("register user submit button hit");
+        console.log("first name is : ",$scope.firstName);
+        var scopeObj={};
+            scopeObj.firstName=$scope.firstName;
+            scopeObj.lastName=$scope.lastName;
+            scopeObj.email=$scope.email;
+            scopeObj.password=$scope.password;
+        
+        service.registerService(scopeObj);
+    }
+})
+
+
+app.controller("loginController",function($scope,service){ 
+    $scope.loginUser=function (){
+        console.log($scope);
+        console.log("login user submit button hit");
+        var scopeObj={};
+            scopeObj.email=$scope.email;
+            scopeObj.password=$scope.password;
+        
+        service.loginService(scopeObj);
+    }
+})
+
+app.controller("forgotPasswordController",function($scope,service){    
+    $scope.forgotPassword=function (){
+        var scopeObj={};
+            scopeObj.email=$scope.email;
+        console.log("forgot password submit button hit");
+        service.forgotPasswordService(scopeObj);
 
     }
-}
+})
+
+
+
+
