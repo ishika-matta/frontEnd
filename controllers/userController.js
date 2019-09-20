@@ -35,6 +35,17 @@ app.controller("forgotPasswordController",function($scope,service){
     }
 })
 
+app.controller("resetPasswordController",function($scope,service){    
+    $scope.forgotPassword=function (){
+        var scopeObj={};
+            scopeObj.password=$scope.password;
+            scopeObj.confirmPassword=$scope.confirmPassword;
+        console.log("reset password submit button hit");
+        service.forgotPasswordService(scopeObj);
+
+    }
+})
+
 
 
 
