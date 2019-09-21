@@ -28,6 +28,12 @@ function($stateProvider, $urlRouterProvider) {
         url: '/resetPassword',
         templateUrl: 'templates/resetPassword.html',
         controller: 'resetPasswordController'
+      })
+
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'templates/dashboard.html',
+        controller: 'dashboardController'
       });
 
       $urlRouterProvider.otherwise('/register');

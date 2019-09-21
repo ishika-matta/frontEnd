@@ -46,6 +46,17 @@ app.controller("resetPasswordController",function($scope,service){
     }
 })
 
+app.controller("dashboardController",function($scope,service){    
+    $scope.dashboard=function (){
+        var scopeObj={};
+        
+            
+        console.log("inside dashboard controller....54");
+        service.dashboardService(scopeObj);
+
+    }
+})
+
 
 
 

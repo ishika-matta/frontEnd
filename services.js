@@ -1,4 +1,22 @@
-app.service("service", function ($http) {
+app.service("service", function ($http,$state) {
+
+    this.dashboardService=function(scopeObj){
+        console.log("entered dashboard services....49");
+        $http({
+            method: 'GET',
+            url: 'http://localhost:5000/getUsers',
+            data: scopeObj,
+        })
+            .then(function (success) {
+                const $email=success.data.result;
+                
+                console.log("success api  ", $email);
+            }
+                , function (error) {
+                    console.log("error api  ", error);
+
+                })      
+    }
     this.registerService = function (scopeObj) {
         console.log("inside services   ", scopeObj);
         $http({
@@ -23,6 +41,8 @@ app.service("service", function ($http) {
         })
             .then(function (success) {
                 console.log("success api  ", success);
+                $state.go('dashboard')
+                console.log("...........");
             }
                 , function (error) {
                     console.log("error api  ", error);
@@ -31,7 +51,6 @@ app.service("service", function ($http) {
     }
 
     this.forgotPasswordService=function(scopeObj){
-        console.log("eewxwx");
         $http({
             method: 'POST',
             url: 'http://localhost:5000/forgotPassword',
@@ -45,4 +64,6 @@ app.service("service", function ($http) {
 
                 })      
     }
+
+   
 })
