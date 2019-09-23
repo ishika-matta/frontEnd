@@ -25,10 +25,11 @@ function($stateProvider, $urlRouterProvider) {
       })
 
       .state('resetPassword', {
-        url: '/resetPassword',
+        url: '/resetPassword/:token',
         templateUrl: 'templates/resetPassword.html',
         controller: 'resetPasswordController'
       })
+
 
       .state('dashboard', {
         url: '/dashboard',

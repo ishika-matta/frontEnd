@@ -1,5 +1,16 @@
 <div>
-    <h1>dashboard</h1>
-    <p><button ng-click="dashboard()">view users</button> </p> 
-    <p> </p>
+    <!-- <h1 class="h1">dashboard</h1> -->
+    <!-- <p><button ng-click="dashboard()">view users</button> </p>  -->
+    <div class="viewUsers"> 
+            <p ng-repeat="email in emailData">{{email.email}} </p>
+    </div>
+    <div class="message">
+    <ul id="messages"></ul>
+    <p class="textBox"> <input type="text" placeholder="Enter your message here"> </p>
+    <button id="send">Send message</button>
+
+</div>
+  
+    
+    
 </div>

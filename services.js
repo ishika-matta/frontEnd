@@ -1,6 +1,6 @@
 app.service("service", function ($http,$state) {
 
-    this.dashboardService=function(scopeObj){
+    this.dashboardService=function(scopeObj,callback){
         console.log("entered dashboard services....49");
         $http({
             method: 'GET',
@@ -8,12 +8,13 @@ app.service("service", function ($http,$state) {
             data: scopeObj,
         })
             .then(function (success) {
-                const $email=success.data.result;
-                
-                console.log("success api  ", $email);
+              
+                console.log("success api  ", success);
+                callback(null,success.data.result)
             }
                 , function (error) {
                     console.log("error api  ", error);
+                    callback(err);
 
                 })      
     }
@@ -41,7 +42,7 @@ app.service("service", function ($http,$state) {
         })
             .then(function (success) {
                 console.log("success api  ", success);
-                $state.go('dashboard')
+                $state.go('dashboard');
                 console.log("...........");
             }
                 , function (error) {
@@ -65,5 +66,25 @@ app.service("service", function ($http,$state) {
                 })      
     }
 
-   
-})
+
+    this.resetPasswordService = function (scopeObj,token) {
+       
+           
+           $http({
+               method: 'POST',
+               url: 'http://localhost:5000/resetPassword',
+               headers: {
+                   'token': token
+                 },
+               data: scopeObj
+           })
+           .then(function (success) {
+            console.log("success api  ", success);
+        }
+            , function (error) {
+                console.log("error api  ", error);
+
+            })
+
+        }
+    })

@@ -35,26 +35,34 @@ app.controller("forgotPasswordController",function($scope,service){
     }
 })
 
-app.controller("resetPasswordController",function($scope,service){    
-    $scope.forgotPassword=function (){
+app.controller("resetPasswordController",function($scope,$stateParams,service){    
+    $scope.resetPassword=function (){
+        $scope.token = $stateParams.token;
         var scopeObj={};
             scopeObj.password=$scope.password;
             scopeObj.confirmPassword=$scope.confirmPassword;
         console.log("reset password submit button hit");
-        service.forgotPasswordService(scopeObj);
-
+        service.resetPasswordService(scopeObj,$scope.token);
     }
 })
 
-app.controller("dashboardController",function($scope,service){    
-    $scope.dashboard=function (){
-        var scopeObj={};
-        
-            
-        console.log("inside dashboard controller....54");
-        service.dashboardService(scopeObj);
 
-    }
+app.controller("dashboardController",function($scope,service){    
+  
+        var scopeObj={};    
+        scopeObj.firstName=$scope.firstName; 
+        console.log("inside dashboard controller....54");
+        service.dashboardService(scopeObj,(err,data)=>{
+            if(data){
+            $scope.emailData=data;
+            
+            }
+            else
+            console.log("error");
+
+        });
+
+    
 })
 
 

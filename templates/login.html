@@ -1,8 +1,10 @@
-<form>
-        <h1>login</h1>
-        <div>
-                <p>Email: <input type="email" ng-model="email" placeholder="enter the email"> </input></p>
-                <p>Password: <input type="password" ng-model="password" placeholder="enter the password"> </input></p>
-                <p><button ng-click="loginUser()">Login</button> </p>
-                <a ui-sref="forgotPassword">forgot password</a>
+<form name="loginForm">
+        <h1 class="h1">Login</h1>
+        <div class="center">
+                <p>Email <input type="email" ng-model="email" placeholder="enter the email"  required> </input></p>
+        
+                <p>Password <input type="password" ng-model="password" placeholder="enter the password" required> </input></p>
+              
+                <p><button ng-click="loginUser()" class="button">Login</button> </p>
+                <a ui-sref="forgotPassword" class="h2">Forgot password?</a>
 </form>
